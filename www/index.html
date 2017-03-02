@@ -4,6 +4,8 @@
 
 <head>
 
+    
+    
     <title>App Framework Kitchen Sink</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
@@ -19,51 +21,7 @@
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
         
     <script src='cordova.js'></script>
-        
-    <script type="application/javascript">
-            // Forçar uso do layout App Framework
-            $.ui.useOSThemes=false;
 
-            // Capturar o clique no botão #btnClientes...
-            $(document).on("click", "#btn-main", function(evt)
-            {
-                // Limpar todos os itens da lista...
-                $("#listaClientes").empty();
-
-                // Exibe a mensagem 'Carregndo clientes'
-                $("#situacao").html("<center>Buscando clientes no banco de dados (API)...</center>"); 
-
-                // Consumir a API...
-                $.ajax({
-                    type: "GET",
-                    url: "http://localhost/cordova/sistemadeclientes/api/clientes",
-                    timeout: 3000,
-                    contentType: "application/json; charset=utf-8",
-                    //dataType: "jsonp",
-                    success: function (result, jqXHR) {
-
-                        // Interpretando retorno JSON...
-                        var clientes = JSON.parse(result);
-
-                        // Listando cada cliente encontrado na lista...
-                        $.each(clientes,function(i, cliente){
-                            var item = "<li><h2>"+cliente.NOME+"</h2><p><b>Fone.:</b> "+cliente.TELEFONE+"</p><p><b>Email:</b> "+cliente.EMAIL+"</p></li>";                            
-                            $("#listaClientes").append(item);
-                        });
-
-                        // Exibir mensagem com total de clientes encontrados...
-                        $("#situacao").html("<center>Foram encontrado "+clientes.length+" cliente(s)</center>");
-
-                    },
-                    error: function (jqXHR, status) {            
-                        // Exibir mensagem de erro, caso aconteça...
-                        $("#situacao").html("<center>O servidor não conseguiu processar o pedido. Tente novamente mais tarde...</center>");
-                    },
-                });
-
-
-            });
-        </script>
 
 </head>
 
@@ -85,10 +43,7 @@
         
         <div class="pages">
             <div class="panel" id="main" data-title="Main" data-selected="true">
-                <a id="btn-main" href="#"> Consultar </a>
-                <ul class="list widget uib_w_4 d-margins rest-of-height" data-uib="app_framework/listview" data-ver="1" id="listaClientes">
-                
-                </ul>
+                This is main page
             </div>
             <div class="panel" id="trabalhos" data-title="Page 2">
                 AQUI
@@ -104,9 +59,9 @@
                     <div class="panel active" id="navPage1" data-title="Foobar">
                         <ul class="list">
                             <li><a href="#main" onclick="$.afui.clearHistory()">Inicio</a></li>
-                            <li><a href="pages/apresentacao.html" data-title="Apresentação" onclick="$.afui.clearHistory()">Apresentação</a></li>
+                            <li><a href="palestra.html" data-title="Apresentação" onclick="$.afui.clearHistory()">Apresentação</a></li>
                             <li><a href="#trabalhos" onclick="$.afui.clearHistory()">Trabalhos</a></li>
-                            <li><a href="#page2" onclick="$.afui.clearHistory()">Palestras</a></li>
+                            <li><a href="pages/palestras.html" onclick="$.afui.clearHistory()">Palestras</a></li>
                             <li><a href="#page2" onclick="$.afui.clearHistory()">Ficha técnica</a></li>
                             <li><a href="#page2" onclick="$.afui.clearHistory()">Comissão</a></li>
                             <li><a href="#page2" onclick="$.afui.clearHistory()">Créditos</a></li>
