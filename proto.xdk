@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-side-menu-js/sample.zip",
       "projectGuid": "2769b359-3af6-4f6c-a1fb-6ec66e9b50f3",
-      "lastModifiedDate": 1488476254364,
+      "lastModifiedDate": 1488483059511,
       "creationDate": 1488473089162
     },
     "sourceDirectory": "www",
@@ -103,7 +103,7 @@
         "appAccess_": {
           "mode": "whitelist",
           "network": [
-            "*"
+            "http://localhost"
           ],
           "intents": [
             "http://*/*",
@@ -114,7 +114,8 @@
             "geo:*",
             "market:*"
           ],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
